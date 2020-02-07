@@ -3,3 +3,8 @@
 # Ignore any output files generated.
 *.out
 *.txt
+crunch.rst
+
+# Ignore osx file system database.
+.DS_Store
+
