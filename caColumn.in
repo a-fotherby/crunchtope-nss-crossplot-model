@@ -13,7 +13,7 @@ speciate_only                false
 screen_output                10
 hindmarsh                    true
 BurchRateLaw                 false
-database                     database.dbs
+database                     reducedDatabase.dbs
 kinetic_database             sulfateMethaneAqueous.dbs
 END
  
@@ -26,7 +26,7 @@ temperature                  8.0
 pH                           8.15  
 CO2(aq)                      4.75e-03
 O2(aq)                       180.0e-06 
-NH4+                         1.480e-09
+NH3(aq)                      1.480e-09
 Mg++                         5.110e-2
 Al+++                        0.037e-6   
 Fe++                         2.600e-5
@@ -118,7 +118,7 @@ PRIMARY_SPECIES
 H+
 Al+++
 CO2(aq)
-NH4+
+NH3(aq)
 Mg++
 Ca++
 Ca44++
@@ -185,13 +185,13 @@ KHS34O4(aq)
 KOH(aq)                                                                 
 KSO4-                                                            
 KS34O4-                                                            
-NH3(aq)
 NaAlO2(aq)                                                              
 NaCl(aq)                                                                
 NaHSiO3(aq)                                                             
 NaOH(aq)                                                                
 NaSO4-
 NaS34O4-
+NH4+
 H2(aq)                                                                 
 CaHPO4(aq)  
 Ca44HPO4(aq)
