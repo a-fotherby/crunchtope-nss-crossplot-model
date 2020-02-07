@@ -48,30 +48,30 @@ NO3-                         3.9e-5
 Formaldehyde                 1.2e-01
 C5H7O2NSO4                   C5H7O2NSO4(s)
 ! Solid phase.
-!FeS(am)                      0.00001       0.2
-!FeS34(am)                    4.5090014600E-07       0.2
-!SiO2(am)                     0.00         0.2
-!Quartz                       0.02         1.0
-!Siderite                     0.00         1.0
-!Calcite                      0.3         1.0   
-!Calcite44                    0.006360041         1.0 
+FeS(am)                      0.00001       0.2
+FeS34(am)                    4.5090014600E-07       0.2
+SiO2(am)                     0.00         0.2
+Quartz                       0.02         1.0
+Siderite                     0.00         1.0
+Calcite                      0.3         1.0   
+Calcite44                    0.006360041         1.0 
 !Sepiolite                    0.01     ssa 55.0
-!K-Feldspar                   0.01     ssa 55.0
-!Kaolinite                    0.05     ssa 55.0
+K-Feldspar                   0.01     ssa 55.0
+Kaolinite                    0.05     ssa 55.0
 C5H7O2NSO4(s)                5.189E-6
 END
 
 MINERALS
-!FeS(am)                      -rate  -9.0
-!FeS34(am)                    -rate  -9.0
-!Siderite                     -rate  -10.0
-!SiO2(am)                     -rate  -9.0  
-!Quartz                       -default      -rate  -30.0          
-!Calcite                      -label default         -rate  -10.6  
-!Calcite44                    -label default         -rate  -10.600556      
+FeS(am)                      -rate  -9.0
+FeS34(am)                    -rate  -9.0
+Siderite                     -rate  -10.0
+SiO2(am)                     -rate  -9.0  
+Quartz                       -default      -rate  -30.0          
+Calcite                      -label default         -rate  -10.6  
+Calcite44                    -label default         -rate  -10.600556      
 !Sepiolite                    -rate  -19.0  
-!K-Feldspar                   -rate  -19.0  
-!Kaolinite                    -rate  -19.2    
+K-Feldspar                   -rate  -19.0  
+Kaolinite                    -rate  -19.2    
 C5H7O2NSO4(s)                -label  default -rate  -2.0
 END
 
@@ -88,8 +88,8 @@ ISOTOPES
 primary                      Ca44++        Ca++        0.0212075584
 primary                      H2S34(aq)     H2S(aq)     0.0441626
 primary                      S34O4--       SO4--       0.0441626
-!mineral                      Calcite44     Calcite     bulk
-!mineral                      FeS34(am)     FeS(am)     none
+mineral                      Calcite44     Calcite     bulk
+mineral                      FeS34(am)     FeS(am)     none
 END
  
 POROSITY
