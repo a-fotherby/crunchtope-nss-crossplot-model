@@ -1,0 +1,5 @@
+# Ignore any pestcontrol files.
+*.ant
+# Ignore any output files generated.
+*.out
+*.txt
