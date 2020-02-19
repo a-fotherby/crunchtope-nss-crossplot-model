@@ -25,26 +25,11 @@ CONDITION                    Seawater
 temperature                  8.0
 pH                           8.15  
 CO2(aq)                      4.75e-03
-O2(aq)                       180.0e-06 
-NH3(aq)                      1.480e-09
-Mg++                         5.110e-2
-Al+++                        0.037e-6   
-Fe++                         2.600e-5
-Fe+++                        1.000e-13
-Ca++                         9.8117922078e-03
-Ca44++                       2.0827143200E-04
-K+                           1.200e-02
 SO4--                        26.79609E-03
 S34O4--                      1.2082360893E-03
-B(OH)3(aq)                   0.400e-03
-HPO4--                       1.700e-06
 H2S(aq)                      1.000e-15
 H2S34(aq)                    1.000e-15
-SiO2(aq)                     1.57e-04     
-Na+                          4.740e-01
 Methane(aq)                  1e-08
-Cl-                          charge
-NO3-                         3.9e-5
 Formaldehyde                 1.2e-01
 C5H7O2NSO4                   C5H7O2NSO4(s)
 ! BIOMASS
@@ -68,12 +53,6 @@ POROSITY
 fix_porosity                 0.90
 END
 
-!EROSION/BURIAL
-!time_units                  years
-!distance_units              meters
-!erode_x                     0.00015
-!END  
-
 DISCRETIZATION
 xzones                       270 1
 END
@@ -88,97 +67,18 @@ END
  
 PRIMARY_SPECIES
 H+
-Al+++
 CO2(aq)
-NH3(aq)
-Mg++
-Ca++
-Ca44++
-Fe++
-Fe+++
-Cl-
-K+
 H2S(aq)
 H2S34(aq)
 SO4--
 S34O4--
-Na+
-SiO2(aq)
-O2(aq)
-B(OH)3(aq)
-HPO4-- 
-NO3-
 Methane(aq)
 Formaldehyde
-!Formic_acid(aq)
 C5H7O2NSO4
 END
  
 SECONDARY_SPECIES 
-HNO3(aq)
-Al(OH)2+                                                                
-Al(SO4)2-
-Al(S34O4)2-
-AlO2-                                                                   
-AlOH++
-HCO3-   
-CO3--                                                                    
-CaCl+
-Ca44Cl+                                                                   
-CaCl2(aq)
-Ca44Cl2(aq)
-CaOH+  
-Ca44OH+                                                                 
-CaSO4(aq)  
-CaS34O4(aq)  
-Ca44SO4(aq)                                                              
-Ca44S34O4(aq)                                                              
-Fe(OH)2(aq)                                                             
-Fe(OH)3-                                                                
-Fe(OH)4--                                                               
-FeCl+                                                                   
-FeCl2(aq)                                                               
-FeCl4--                                                                 
-FeOH+                                                                   
-FeSO4(aq)    
-FeS34O4(aq)    
 OH-     
-HS-  
-HS34-  
-H2PO4- 
-H3PO4(aq)
-HAlO2(aq)
-HSO4-                                                                   
-HS34O4-                                                                   
-HSiO3-                                                                  
-KCl(aq)                                                                 
-KHSO4(aq)                                                               
-KHS34O4(aq)                                                               
-KOH(aq)                                                                 
-KSO4-                                                            
-KS34O4-                                                            
-NaAlO2(aq)                                                              
-NaCl(aq)                                                                
-NaHSiO3(aq)                                                             
-NaOH(aq)                                                                
-NaSO4-
-NaS34O4-
-NH4+
-H2(aq)                                                                 
-CaHPO4(aq)  
-Ca44HPO4(aq)
-CaPO4-      
-Ca44PO4-                                                            
-FeCO3(aq)                                                             
-FeH2PO4+
-FeHPO4(aq)                                                              
-FePO4-                                                                  
-KHPO4-
-PO4---                                                                  
-S--
-S34--
-BO2- 
-MgB(OH)4+
 END
 
 GASES
@@ -194,13 +94,4 @@ TRANSPORT
 distance_units centimeters
 time_units  seconds
 calculate_diffusion 0.919e-05
-!diffusion_activation  4.5
-!cementation_exponent  2.0
 END
- 
-!FLOW
-!distance_units     meters
-!time_units         years
-!constant_flow      0.000015
-!END
- 
