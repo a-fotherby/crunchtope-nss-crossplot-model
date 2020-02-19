@@ -1,5 +1,5 @@
 TITLE
-Generic ODP for Chris and Matt based off of 984
+Crunchtope version of the NSS isotope model to test advection.
 END
  
 RUNTIME
@@ -61,26 +61,26 @@ Kaolinite                    0.05     ssa 55.0
 C5H7O2NSO4(s)                5.189E-6
 END
 
-MINERALS
-FeS(am)                      -rate  -9.0
-FeS34(am)                    -rate  -9.0
-Siderite                     -rate  -10.0
-SiO2(am)                     -rate  -9.0  
-Quartz                       -default      -rate  -30.0          
-Calcite                      -label default         -rate  -10.6  
-Calcite44                    -label default         -rate  -10.600556      
+!MINERALS
+!FeS(am)                      -rate  -9.0
+!FeS34(am)                    -rate  -9.0
+!Siderite                     -rate  -10.0
+!SiO2(am)                     -rate  -9.0  
+!Quartz                       -default      -rate  -30.0          
+!Calcite                      -label default         -rate  -10.6  
+!Calcite44                    -label default         -rate  -10.600556      
 !Sepiolite                    -rate  -19.0  
-K-Feldspar                   -rate  -19.0  
-Kaolinite                    -rate  -19.2    
-C5H7O2NSO4(s)                -label  default -rate  -2.0
-END
+!K-Feldspar                   -rate  -19.0  
+!Kaolinite                    -rate  -19.2    
+!C5H7O2NSO4(s)                -label  default -rate  -2.0
+!END
 
 AQUEOUS_KINETICS
 Sulfate_reduction            -rate 60
 Sulfate34_reduction          -rate 55.8
-AOM                          -rate 480
-AOM34                        -rate 478.4
-Methanogenesis               -rate 80
+!AOM                          -rate 480
+!AOM34                        -rate 478.4
+!Methanogenesis               -rate 80
 END
 
 
