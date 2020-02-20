@@ -11,34 +11,47 @@
   keq           = 2.52725
 /
 
+!&Aqueous
+!  name     = 'Sulfate34_reduction'
+!  type          = 'catabolic'
+!  stoichiometry = -0.125 'S34O4--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S34(aq)' 0.5 'H2O'
+!  keq      = 2.52725
+!/
+
 &Aqueous
   name     = 'Sulfate34_reduction'
   type          = 'catabolic'
-  stoichiometry = -0.125 'S34O4--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S34(aq)' 0.5 'H2O'
+  stoichiometry = -0.125 'S34O4--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
   keq      = 2.52725
 /
 
 &Aqueous
-  name          =  'AOM'
+  name          = 'Sulfate16_reduction'
   type          = 'catabolic'
-  stoichiometry = -0.125 'Methane(aq)'  -0.125 'SO4--' -0.25 'H+' 0.125 'CO2(aq)'  0.125 'H2S(aq)'  0.5 'H2O'
+  stoichiometry = -0.125 'SO164--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
   keq           = 2.52725
 /
 
 &Aqueous
-  name          =  'AOM34'
+  name     = 'Sulfate18_reduction'
   type          = 'catabolic'
-  stoichiometry = -0.125 'Methane(aq)'  -0.125 'S34O4--' -0.25 'H+' 0.125 'CO2(aq)'  0.125 'H2S34(aq)'  0.5 'H2O'
-  keq           = 2.52725
+  stoichiometry = -0.125 'SO184--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
+  keq      = 2.52725
 /
 
 &Aqueous
-  name     = 'Methanogenesis'
+  name     = 'Equilibrium_exchange16->18'
   type          = 'catabolic'
-  stoichiometry = -0.5 'Formaldehyde' 0.25 'Methane(aq)' 0.25 'CO2(aq)'
-  keq      = 1.11911
+  stoichiometry = -0.125 'SO164--' 0.125 'SO184--'
+  keq      = 2.52725
 /
 
+&Aqueous
+  name     = 'Equilibrium_exchange18->16'
+  type          = 'catabolic'
+  stoichiometry = -0.125 'SO184--' 0.125 'SO164--'
+  keq      = 2.52725
+/
 ! -------------------------------------------------------------------------------------------------
 !
 !  rate expressions
@@ -72,40 +85,42 @@
   direction = -1 
 /
 
-
 &AqueousKinetics
-  name          = 'AOM'
+  name     = 'Sulfate16_reduction'
   label         = 'default'
   type          = 'MonodBiomass'
-  rate25C       = 1.8e-8
-  monod_terms   = 'tot_SO4--' 4.8E-5 'tot_Methane(aq)' 1.0E-5
-  biomass = 'C5H7O2NSO4(s)'
-  chi      = 1
-  bq       = -0.0
-  direction = -1
-/
-
-&AqueousKinetics
-  name          = 'AOM34'
-  label         = 'default'
-  type          = 'MonodBiomass'
-  rate25C       = 1.8e-8
-  monod_terms   = 'tot_S34O4--' 4.8E-5 'tot_Methane(aq)' 1.0E-5
-  biomass = 'C5H7O2NSO4(s)' 
-  chi      = 1
-  bq       = -0.0
-  direction = -1
-/
-
-&AqueousKinetics
-  name     = 'Methanogenesis'
-  label         = 'default'
-  type          = 'MonodBiomass'
-  rate25C       = 2500.0
-  monod_terms   ='tot_Formaldehyde' 1.5E-05
-  inhibition = 'SO4--' 5E-4
+  rate25C       = 25000
+  monod_terms   = 'tot_Formaldehyde' 1.0E-04 'tot_SO164--' 4.8000E-04
   biomass  = 'C5H7O2NSO4(s)'
   chi      = 1
   bq       = -0.0
-  direction = -1
+  direction = -1 
+/
+
+&AqueousKinetics
+  name     = 'Sulfate18_reduction'
+  label         = 'default'
+  type          = 'MonodBiomass'
+  rate25C       = 25000
+  monod_terms   = 'tot_Formaldehyde' 1.0E-04 'tot_SO184--' 4.8000E-04
+  biomass  = 'C5H7O2NSO4(s)'
+  chi      = 1
+  bq       = -0.0
+  direction = -1 
+/
+
+&AqueousKinetics
+  name     = 'Equilibrium_exchange16->18'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence :
+/
+
+&AqueousKinetics
+  name     = 'Equilibrium_exchange18->16'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence :
 /
