@@ -18,7 +18,7 @@ kinetic_database             sulfateMethaneAqueous.dbs
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000 
+spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 3000000 
 END
 
 CONDITION                    Seawater  
