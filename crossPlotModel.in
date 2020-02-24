@@ -47,6 +47,8 @@ Sulfate_reduction            -rate 60
 Sulfate34_reduction          -rate 55.8
 Sulfate16_reduction          -rate 60
 Sulfate18_reduction          -rate 55.8
+Equilibrium_exchange16->18   -rate 500
+Equilibrium_exchange18->16   -rate 500
 END
 
 ISOTOPES
