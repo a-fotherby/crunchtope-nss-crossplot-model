@@ -1,4 +1,4 @@
-TITLE
+ITLE
 Crunchtope version of the NSS isotope model to test advection.
 END
  
@@ -18,7 +18,7 @@ kinetic_database             sulfateMethaneAqueous.dbs
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 3000000 
+spatial_profile              1000 10000 50000 100000 500000 750000 1000000
 END
 
 CONDITION                    Seawater  
@@ -27,8 +27,8 @@ pH                           8.15
 CO2(aq)                      4.75e-03
 SO4--                        26.79609E-03
 S34O4--                      1.2082360893E-03
-SO164--                      26.79609E-03
-SO184--                      1.2082360893E-03
+SO164--                      26.9455E-03
+SO184--                      0.0545E-03
 H2S(aq)                      1.000e-15
 !H2S34(aq)                    1.000e-15
 Methane(aq)                  1e-08
@@ -47,14 +47,13 @@ Sulfate_reduction            -rate 60
 Sulfate34_reduction          -rate 55.8
 Sulfate16_reduction          -rate 60
 Sulfate18_reduction          -rate 55.8
-Equilibrium_exchange16->18   -rate 500
-Equilibrium_exchange18->16   -rate 500
+!Equilibrium_exchange16->18   -rate 1E-07
+!Equilibrium_exchange18->16   -rate 1E-07
 END
 
 ISOTOPES
 primary                      S34O4--       SO4--       0.0441626
-primary                      SO184--       SO164--   0.0441626
-!primary                      SO(18)4--     SO(16)4--   0.0020052
+primary                      SO184--       SO164--     0.0020052
 END
  
 POROSITY
