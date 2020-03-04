@@ -1,4 +1,4 @@
-ITLE
+TLE
 Crunchtope version of the NSS isotope model to test advection.
 END
  
@@ -18,7 +18,7 @@ kinetic_database             sulfateMethaneAqueous.dbs
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000
+spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000
 END
 
 CONDITION                    Seawater  
@@ -45,10 +45,10 @@ END
 AQUEOUS_KINETICS
 Sulfate_reduction            -rate 60
 Sulfate34_reduction          -rate 55.8
-Sulfate16_reduction          -rate 60
-Sulfate18_reduction          -rate 55.8
-!Equilibrium_exchange16->18   -rate 1E-07
-!Equilibrium_exchange18->16   -rate 1E-07
+Sulfate16_reduction          -rate 114.8
+Sulfate18_reduction          -rate 1.0
+16->18EqEx                   -rate 0.999993E-06
+18->16EqEx                   -rate 1.000007E-06
 END
 
 ISOTOPES
