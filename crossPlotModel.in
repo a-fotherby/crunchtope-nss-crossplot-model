@@ -1,4 +1,4 @@
-TLE
+TITLE
 Crunchtope version of the NSS isotope model to test advection.
 END
  
@@ -18,7 +18,7 @@ kinetic_database             sulfateMethaneAqueous.dbs
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000
+spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000 1000000000 
 END
 
 CONDITION                    Seawater  
@@ -33,9 +33,12 @@ H2S(aq)                      1.000e-15
 !H2S34(aq)                    1.000e-15
 Methane(aq)                  1e-08
 Formaldehyde                 1.2e-01
+H2O16                        1
+H2O18                        0.00204
 C5H7O2NSO4                   C5H7O2NSO4(s)
 ! BIOMASS
 C5H7O2NSO4(s)                5.189E-6
+
 END
 
 MINERALS
@@ -47,8 +50,7 @@ Sulfate_reduction            -rate 60
 Sulfate34_reduction          -rate 55.8
 Sulfate16_reduction          -rate 114.8
 Sulfate18_reduction          -rate 1.0
-16->18EqEx                   -rate 0.999993E-06
-18->16EqEx                   -rate 1.000007E-06
+16->18EqEx                   -rate 5.0
 END
 
 ISOTOPES
@@ -84,6 +86,8 @@ SO164--
 Methane(aq)
 Formaldehyde
 C5H7O2NSO4
+H2O16
+H2O18
 END
  
 SECONDARY_SPECIES 
