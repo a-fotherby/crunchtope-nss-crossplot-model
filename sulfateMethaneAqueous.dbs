@@ -41,12 +41,8 @@
 
 &Aqueous
   name     = '16->18EqEx'
-  stoichiometry = -0.125 'SO164--'  0.125 'SO184--'
-/
-
-&Aqueous
-  name     = '18->16EqEx'
-  stoichiometry = -0.125 'SO184--'  0.125 'SO164--'
+  stoichiometry = -0.125 'SO164--' -0.125 'H2O18' 0.125 'SO184--' 0.125 'H2O16'
+  keq      = 0
 /
 
 ! -------------------------------------------------------------------------------------------------
@@ -108,15 +104,7 @@
 &AqueousKinetics
   name          = '16->18EqEx'
   label         = 'default'
-  type          = 'irreversible'
+  type          = 'tst'
   rate25C       = 25000
-  dependence    = 'tot_SO164--' 0.0
-/
-
-&AqueousKinetics
-  name          = '18->16EqEx'
-  label         = 'default'
-  type          = 'irreversible'
-  rate25C       = 25000
-  dependence    = 'tot_SO184--' 0.0
+  dependence    = 'tot_SO164--' 1.0 'tot_SO184--' 1.0
 /
