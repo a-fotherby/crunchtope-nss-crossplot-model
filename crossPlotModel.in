@@ -35,14 +35,6 @@ Methane(aq)                  1e-08
 Formaldehyde                 1.2
 H2O16                        1
 H2O18                        2.04713E-3
-C5H7O2NSO4                   C5H7O2NSO4(s)
-! BIOMASS
-C5H7O2NSO4(s)                5.189E-6
-
-END
-
-MINERALS
-C5H7O2NSO4(s)                -label  default -rate  -2.0
 END
 
 AQUEOUS_KINETICS
@@ -85,7 +77,6 @@ SO184--
 SO164--
 Methane(aq)
 Formaldehyde
-C5H7O2NSO4
 H2O16
 H2O18
 END
