@@ -5,7 +5,7 @@ END
 RUNTIME
 timestep_max                 10000.0
 timestep_init                1.e-12
-time_tolerance               0.0005
+time_tolerance               0.0001
 correction_max               2.0
 debye-huckel                 true
 database_sweep               false
@@ -14,11 +14,11 @@ screen_output                10
 hindmarsh                    true
 BurchRateLaw                 false
 database                     reducedDatabase.dbs
-kinetic_database             sulfateMethaneAqueous.dbs
+kinetic_database             constantRateMSR.dbs
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000 1000000000 
+spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000
 END
 
 CONDITION                    Seawater  
@@ -32,9 +32,9 @@ SO184--                      0.0545E-03
 H2S(aq)                      1.000e-15
 !H2S34(aq)                    1.000e-15
 Methane(aq)                  1e-08
-Formaldehyde                 1.2e-01
+Formaldehyde                 1.2
 H2O16                        1
-H2O18                        0.00204
+H2O18                        2.04713E-3
 C5H7O2NSO4                   C5H7O2NSO4(s)
 ! BIOMASS
 C5H7O2NSO4(s)                5.189E-6
@@ -46,11 +46,11 @@ C5H7O2NSO4(s)                -label  default -rate  -2.0
 END
 
 AQUEOUS_KINETICS
-Sulfate_reduction            -rate 60
-Sulfate34_reduction          -rate 55.8
-Sulfate16_reduction          -rate 114.8
-Sulfate18_reduction          -rate 1.0
-16->18EqEx                   -rate 5.0
+Sulfate_reduction            -rate 0.00010363E-1
+Sulfate34_reduction          -rate 0.00009637E-1
+Sulfate16_reduction          -rate 0.00010031E-1
+Sulfate18_reduction          -rate 0.000099689E-1
+16->18EqEx                   -rate 1
 END
 
 ISOTOPES
