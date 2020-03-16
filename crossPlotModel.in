@@ -98,4 +98,8 @@ TRANSPORT
 distance_units centimeters
 time_units  seconds
 calculate_diffusion 0.919e-05
+FLOW
+distance_units         meters
+time_units             year
+constant_flow          5E-05
 END
