@@ -42,7 +42,7 @@ Sulfate_reduction            -rate 0.00010363E-1
 Sulfate34_reduction          -rate 0.00009637E-1
 Sulfate16_reduction          -rate 0.00010031E-1
 Sulfate18_reduction          -rate 0.000099689E-1
-16->18EqEx                   -rate 1
+16->18EqEx                   -rate 0.00000001
 END
 
 ISOTOPES
@@ -55,11 +55,11 @@ fix_porosity                 0.90
 END
 
 DISCRETIZATION
-xzones                       270 1
+xzones                       400 1
 END
  
 INITIAL_CONDITIONS
-Seawater                     1-270
+Seawater                     1-400
 END
  
 TEMPERATURE
