@@ -1,5 +1,5 @@
 TITLE
-Crunchtope version of the NSS isotope model to test advection.
+Crunchtope version of the NSS isotope model to test advection. Case 3, stage 2.
 END
  
 RUNTIME
@@ -15,6 +15,7 @@ hindmarsh                    true
 BurchRateLaw                 false
 database                     reducedDatabase.dbs
 kinetic_database             constantRateMSR.dbs
+restart                      case3Restart.rst
 END
  
 OUTPUT
@@ -38,11 +39,11 @@ H2O18                        2.04713E-3
 END
 
 AQUEOUS_KINETICS
-Sulfate_reduction            -rate 0.00010363E-1
-Sulfate34_reduction          -rate 0.00009637E-1
-Sulfate16_reduction          -rate 0.00010031E-1
-Sulfate18_reduction          -rate 0.000099689E-1
-16->18EqEx                   -rate 0.00000001
+Sulfate_reduction            -rate 0.00010363E-2
+Sulfate34_reduction          -rate 0.00009637E-2
+Sulfate16_reduction          -rate 0.00010031E-2
+Sulfate18_reduction          -rate 0.000099689E-2
+16->18EqEx                   -rate 1
 END
 
 ISOTOPES
@@ -55,11 +56,11 @@ fix_porosity                 0.90
 END
 
 DISCRETIZATION
-xzones                       400 1
+xzones                       270 1
 END
  
 INITIAL_CONDITIONS
-Seawater                     1-400
+Seawater                     1-270
 END
  
 TEMPERATURE
@@ -98,10 +99,4 @@ TRANSPORT
 distance_units centimeters
 time_units  seconds
 calculate_diffusion 0.919e-05
-END 
-
-FLOW
-distance_units         meters
-time_units             year
-constant_flow          5E-05
 END

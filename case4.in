@@ -1,11 +1,11 @@
 TITLE
-Crunchtope version of the NSS isotope model to test advection.
+Crunchtope version of the NSS isotope model to test advection. Case 3, stage 1 (i.e. case 1). 
 END
  
 RUNTIME
 timestep_max                 10000.0
 timestep_init                1.e-12
-time_tolerance               0.0001
+time_tolerance               0.0005
 correction_max               2.0
 debye-huckel                 true
 database_sweep               false
@@ -15,6 +15,7 @@ hindmarsh                    true
 BurchRateLaw                 false
 database                     reducedDatabase.dbs
 kinetic_database             constantRateMSR.dbs
+save_restart                 case4Restart.rst
 END
  
 OUTPUT
@@ -37,12 +38,28 @@ H2O16                        1
 H2O18                        2.04713E-3
 END
 
+CONDITION                    Empty
+temperature                  8.0
+pH                           8.15  
+CO2(aq)                      4.75E-10
+SO4--                        26.79609E-10
+S34O4--                      1.2082360893E-10
+SO164--                      26.9455E-10
+SO184--                      0.0545E-10
+H2S(aq)                      1.000E-10
+!H2S34(aq)                    1.000E-10
+Methane(aq)                  1E-10
+Formaldehyde                 1.2
+H2O16                        1
+H2O18                        2.04713E-3
+END
+
 AQUEOUS_KINETICS
 Sulfate_reduction            -rate 0.00010363E-1
 Sulfate34_reduction          -rate 0.00009637E-1
 Sulfate16_reduction          -rate 0.00010031E-1
 Sulfate18_reduction          -rate 0.000099689E-1
-16->18EqEx                   -rate 0.00000001
+16->18EqEx                   -rate 1
 END
 
 ISOTOPES
@@ -55,11 +72,16 @@ fix_porosity                 0.90
 END
 
 DISCRETIZATION
-xzones                       400 1
+xzones                       270 1
 END
  
 INITIAL_CONDITIONS
-Seawater                     1-400
+Empty                     1-270
+END
+
+BOUNDARY_CONDITIONS
+X_begin   Seawater     Dirichlet
+X_end     Seawater     flux
 END
  
 TEMPERATURE
@@ -89,19 +111,8 @@ GASES
 CO2(g)
 END
  
-BOUNDARY_CONDITIONS
-X_begin   Seawater     Dirichlet
-X_end     Seawater     flux
-END
- 
 TRANSPORT
 distance_units centimeters
 time_units  seconds
 calculate_diffusion 0.919e-05
-END 
-
-FLOW
-distance_units         meters
-time_units             year
-constant_flow          5E-05
 END

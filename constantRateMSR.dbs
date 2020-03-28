@@ -75,5 +75,5 @@
   label         = 'default'
   type          = 'tst'
   rate25C       = 25000
-  dependence    = 'tot_SO164--' 1.0 'tot_SO184--' 1.0
+  dependence    =
 /
