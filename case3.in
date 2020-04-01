@@ -1,11 +1,11 @@
 TITLE
-Crunchtope version of the NSS isotope model to test advection. Case 3, stage 1 (i.e. case 1). 
+Crunchtope version of the NSS isotope model to test advection. Case 3, stage 1. 
 END
  
 RUNTIME
 timestep_max                 10000.0
 timestep_init                1.e-12
-time_tolerance               0.0005
+time_tolerance               0.0001
 correction_max               2.0
 debye-huckel                 true
 database_sweep               false
@@ -19,11 +19,10 @@ save_restart                 case3Restart.rst
 END
  
 OUTPUT
-spatial_profile              1000 10000 50000 100000 500000 750000 1000000 2000000 10000000 100000000
+spatial_profile              1 10 25 50 75 100 250 500 750 1000
 END
 
 CONDITION                    Seawater  
-temperature                  8.0
 pH                           8.15  
 CO2(aq)                      4.75e-03
 SO4--                        26.79609E-03
@@ -31,35 +30,18 @@ S34O4--                      1.2082360893E-03
 SO164--                      26.9455E-03
 SO184--                      0.0545E-03
 H2S(aq)                      1.000e-15
-!H2S34(aq)                    1.000e-15
 Methane(aq)                  1e-08
 Formaldehyde                 1.2
 H2O16                        1
 H2O18                        2.04713E-3
 END
 
-CONDITION                    Empty
-temperature                  8.0
-pH                           8.15  
-CO2(aq)                      4.75E-10
-SO4--                        26.79609E-10
-S34O4--                      1.2082360893E-10
-SO164--                      26.9455E-10
-SO184--                      0.0545E-10
-H2S(aq)                      1.000E-10
-!H2S34(aq)                    1.000E-10
-Methane(aq)                  1E-10
-Formaldehyde                 1.2
-H2O16                        1
-H2O18                        2.04713E-3
-END
-
 AQUEOUS_KINETICS
-Sulfate_reduction            -rate 0.00010363E-1
-Sulfate34_reduction          -rate 0.00009637E-1
-Sulfate16_reduction          -rate 0.00010031E-1
-Sulfate18_reduction          -rate 0.000099689E-1
-16->18EqEx                   -rate 1
+Sulfate_reduction            -rate 0.09077988
+Sulfate34_reduction          -rate 0.08442012
+Sulfate16_reduction          -rate 0.08787156
+Sulfate18_reduction          -rate 0.08732844
+16->18EqEx                   -rate 1E-3
 END
 
 ISOTOPES
@@ -68,31 +50,30 @@ primary                      SO184--       SO164--     0.0020052
 END
  
 POROSITY
-fix_porosity                 0.90
+fix_porosity                 0.80
 END
 
 DISCRETIZATION
-xzones                       270 1
+xzones                       1000 0.004
 END
  
 INITIAL_CONDITIONS
-Empty                     1-270
+Seawater                     1-1000
 END
-
+ 
 BOUNDARY_CONDITIONS
-X_begin   Seawater     Dirichlet
-X_end     Seawater     flux
+X_begin   Seawater           Dirichlet
+X_end     Seawater           flux
 END
  
 TEMPERATURE
-set_temperature              25.0 
+set_temperature              14.0 
 END
  
 PRIMARY_SPECIES
 H+
 CO2(aq)
 H2S(aq)
-!H2S34(aq)
 SO4--
 S34O4--
 SO184--
@@ -113,6 +94,12 @@ END
  
 TRANSPORT
 distance_units centimeters
-time_units  seconds
-calculate_diffusion 0.919e-05
+time_units  hours
+fix_diffusion 0.0275
+END 
+
+FLOW
+distance_units         meters
+time_units             year
+constant_flow          5E-05
 END

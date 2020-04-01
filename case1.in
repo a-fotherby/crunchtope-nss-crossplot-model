@@ -1,5 +1,5 @@
 TITLE
-Crunchtope version of the NSS isotope model to test advection.
+Crunchtope version of the NSS isotope model to test advection. Case 1.
 END
  
 RUNTIME
@@ -22,7 +22,6 @@ spatial_profile              1 10 25 50 75 100 250 500 750 1000
 END
 
 CONDITION                    Seawater  
-temperature                  8.0
 pH                           8.15  
 CO2(aq)                      4.75e-03
 SO4--                        26.79609E-03
@@ -61,6 +60,11 @@ INITIAL_CONDITIONS
 Seawater                     1-1000
 END
  
+BOUNDARY_CONDITIONS
+X_begin   Seawater           Dirichlet
+X_end     Seawater           flux
+END
+ 
 TEMPERATURE
 set_temperature              14.0 
 END
@@ -85,11 +89,6 @@ END
 
 GASES
 CO2(g)
-END
- 
-BOUNDARY_CONDITIONS
-X_begin   Seawater     Dirichlet
-X_end     Seawater     flux
 END
  
 TRANSPORT
