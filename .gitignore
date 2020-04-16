@@ -5,6 +5,9 @@
 *.txt
 *.rst
 
+# Make sure the crunchData directory is tracked, however.
+!crunchData/**/*
+
 # Ignore osx file system database.
 .DS_Store
 
