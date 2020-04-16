@@ -1,0 +1,5 @@
+distance_units centimeters                                                                                                          
+time_units  hours                                                                                                                   
+fix_diffusion 0.0275                                                                                                                
+
+
