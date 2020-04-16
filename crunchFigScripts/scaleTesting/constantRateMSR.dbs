@@ -1,0 +1,79 @@
+! -------------------------------------------------------------------------------------------------
+!
+!  reaction stoichiometry
+!
+! -------------------------------------------------------------------------------------------------
+
+&Aqueous
+  name          = 'Sulfate_reduction'
+  stoichiometry = -0.125 'SO4--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
+/
+
+&Aqueous
+  name     = 'Sulfate34_reduction'
+  stoichiometry = -0.125 'S34O4--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
+/
+
+&Aqueous
+  name          = 'Sulfate16_reduction'
+  stoichiometry = -0.125 'SO164--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
+/
+
+&Aqueous
+  name     = 'Sulfate18_reduction'
+  stoichiometry = -0.125 'SO184--'  0.5 'CO2(aq)'  -0.5 'Formaldehyde'  -0.25 'H+' 0.125 'H2S(aq)' 0.5 'H2O'
+/
+
+&Aqueous
+  name     = '16->18EqEx'
+  stoichiometry = -0.125 'SO164--' -0.125 'H2O18' 0.125 'SO184--' 0.125 'H2O16'
+  keq      = 0
+/
+
+! -------------------------------------------------------------------------------------------------
+!
+!  rate expressions
+!
+! -------------------------------------------------------------------------------------------------
+
+&AqueousKinetics
+  name          = 'Sulfate_reduction'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence    = 'SO4--' 1.0
+/
+
+!! Sulfate-34 reduction, written in terms of the transfer of one electron
+
+&AqueousKinetics
+  name     = 'Sulfate34_reduction'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence    = 'S34O4--' 1.0
+/
+
+&AqueousKinetics
+  name          = 'Sulfate16_reduction'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence    = 'SO164--' 1.0
+/
+
+&AqueousKinetics
+  name     = 'Sulfate18_reduction'
+  label         = 'default'
+  type          = 'irreversible'
+  rate25C       = 25000
+  dependence    = 'SO184--' 1.0
+/
+
+&AqueousKinetics
+  name          = '16->18EqEx'
+  label         = 'default'
+  type          = 'tst'
+  rate25C       = 25000
+  dependence    =
+/
