@@ -19,7 +19,7 @@ save_restart                 case4Restart.rst
 END
  
 OUTPUT
-spatial_profile              1 10 25 50 75 100 250 500 750 1000
+spatial_profile              351
 END
 
 CONDITION                    Seawater  
