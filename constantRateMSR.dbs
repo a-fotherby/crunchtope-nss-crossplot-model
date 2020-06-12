@@ -26,7 +26,7 @@
 
 &Aqueous
   name     = '16->18EqEx'
-  stoichiometry = -0.125 'SO164--' -0.125 'H2O18' 0.125 'SO184--' 0.125 'H2O16'
+  stoichiometry = -1 'SO164--' -1 'H2O18' 1 'SO184--' 1 'H2O16'
   keq      = 0
 /
 
@@ -75,5 +75,5 @@
   label         = 'default'
   type          = 'tst'
   rate25C       = 25000
-  dependence    =
+  dependence    = 'tot_SO164--' 1.0
 /
