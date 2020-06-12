@@ -1,0 +1,105 @@
+TITLE
+Crunchtope version of the NSS isotope model to test advection. Case 3, stage 2.
+END
+ 
+RUNTIME
+timestep_max                 1
+timestep_init                1.e-12
+time_tolerance               0.0001
+correction_max               1.0
+debye-huckel                 false
+database_sweep               false
+speciate_only                false
+screen_output                10
+hindmarsh                    true
+BurchRateLaw                 false
+database                     reducedDatabase.dbs
+kinetic_database             constantRateMSR.dbs
+restart                      noRcase3Restart.rst
+END
+ 
+OUTPUT
+spatial_profile  0.001 20 45 72 105 143 185 244 326 480 2700
+END
+
+CONDITION                    Seawater  
+pH                           8.15  
+CO2(aq)                      4.75e-03
+SO4--                        26.79609E-03
+S34O4--                      1.2082360893E-03
+SO164--                      26.9455E-03
+SO184--                      0.0545E-03
+H2S(aq)                      1.000e-15
+Methane(aq)                  1e-08
+Formaldehyde                 1.2
+H2O16                        50
+H2O18                        0.1023565
+END
+
+AQUEOUS_KINETICS
+Sulfate_reduction            -rate 0.008870886076
+Sulfate34_reduction          -rate 0.008649113924
+Sulfate16_reduction          -rate 0.008787460815
+Sulfate18_reduction          -rate 0.008732539185
+16->18EqEx                   -rate 0
+END
+
+ISOTOPES
+primary                      S34O4--       SO4--       0.0441626
+primary                      SO184--       SO164--     0.0020052
+END
+ 
+POROSITY
+fix_porosity                 0.80
+END
+
+DISCRETIZATION
+xzones                       1000 0.004
+END
+ 
+INITIAL_CONDITIONS
+Seawater                     1-1000
+END
+ 
+BOUNDARY_CONDITIONS
+X_begin   Seawater           Dirichlet
+X_end     Seawater           flux
+END
+ 
+TEMPERATURE
+set_temperature              14.0 
+END
+ 
+PRIMARY_SPECIES
+H+
+CO2(aq)
+H2S(aq)
+SO4--
+S34O4--
+SO184--
+SO164--
+Methane(aq)
+Formaldehyde
+H2O16
+H2O18
+END
+ 
+SECONDARY_SPECIES 
+OH-     
+END
+
+GASES
+CO2(g)
+END
+ 
+TRANSPORT
+distance_units centimeters
+time_units  hours
+fix_diffusion 0.0275
+END 
+
+!FLOW
+!distance_units         meters
+!time_units             year
+!constant_flow          5E-05
+!END
