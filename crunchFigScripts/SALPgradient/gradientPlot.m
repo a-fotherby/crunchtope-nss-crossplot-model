@@ -21,20 +21,27 @@ yIsotope = 'SO164--';
 
 % Calculate needed back reaction fluxes to get correct percentage recyclings of sulfate.
 R_t = 0.1752;
-recArray = [0:5:95]; 
-bArray = (recArray * R_t) ./ (100 - recArray);
+percRArray = [0:5:95]; 
+rArray = (percRArray / 100) ./ (1 - (percRArray/100));
+% Equation 24 using values from case 1 input files.
+exArray = rArray * 0.08787460815 / (1 + (50/0.1023565));
 
-for exchangeRate = bArray
-    editCrunchInput(43, exchangeRate);
+alpha34 = 0.975 - (0.05 * (percRArray/100));
+k32 = 0.1752 ./ (1 + alpha34);
+k34 = 0.1752 - k32;
+
+for i=1:length(exArray)
+    editCrunchInput(43, sprintf('16->18EqEx -rate %d', exArray(i)));
+    editCrunchInput(39, sprintf('Sulfate_reduction -rate %d', k32(i)));
+    editCrunchInput(40, sprintf('Sulfate34_reduction -rate %d', k34(i)));
+
     !~/soft/crunchtope/CrunchTope slaveInput.in
     !~/.scripts/cleanCrunchOutput.sh
     
-    [gradient, time] = gradientTimeDepInterp('toperatio_aq', xIsotope, yIsotope, SALP_lim);
+    [gradient, time] = gradientTimeDepInterp('toperatio_aq', xIsotope, yIsotope);
     [upper, lower] = SALPerrorBars(gradient, time);
     
     SALP = horzcat(SALP, gradient(1, end));
-    exRate = horzcat(exRate, exchangeRate);
-    percentRec = (exRate ./ (exRate + R_t) ) * 100;
     upperBoundArray = horzcat(upperBoundArray, upper);
     lowerBoundArray = horzcat(lowerBoundArray, lower);
 end
@@ -44,7 +51,7 @@ lowerErrorBar = SALP - lowerBoundArray;
 
 nexttile()
 
-errorbar(percentRec, SALP, lowerErrorBar, upperErrorBar, '+')
+errorbar(percRArray, SALP, lowerErrorBar, upperErrorBar, '+')
 ylabel('SALP')
 xlabel('Percentage sulfate recycled')
 
@@ -61,4 +68,7 @@ set(gca, 'YTickLabel', cellstr(num2str(curtick(:))));
 curtick = get(gca, 'XTick');
 set(gca, 'XTickLabel', cellstr(num2str(curtick(:))));
 
-exportgraphics(t, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/gradientPlot.eps', 'ContentType', 'vector');
+set(findall(gcf,'-property','FontSize'),'FontSize',16)
+set(findall(gcf,'-property','Font'),'Font','Helvetica')
+
+%exportgraphics(t, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/gradientPlot.eps', 'ContentType', 'vector');

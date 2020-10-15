@@ -40,11 +40,12 @@ for caseNum = [1:4]
         speciesArray = valuesArray{timeIndex};
         pProgress = getpProgress(speciesArray.('SO4--') + speciesArray.('S34O4--'), finalArray, initialArray);
         
-        plot(speciesArray.('SO4--') + speciesArray.('S34O4--'), speciesArray.Distance, 'DisplayName', sprintf('%.0f%%', pProgress), 'color', cmap(timeIndex, :))
+        plot((speciesArray.('SO4--') + speciesArray.('S34O4--')) * 1000, speciesArray.Distance, 'DisplayName', sprintf('%.0f%%', pProgress), 'color', cmap(timeIndex, :))
         %plot(speciesArray.('SO4--') + speciesArray.('S34O4--'), speciesArray.Distance, 'DisplayName', sprintf('%d', pProgress), 'color', cmap(timeIndex, :))
         units = speciesArray.Properties.VariableUnits{'SO4--'};
-        xlabel(sprintf('%s / %s', 'SO4--', units));
-        ylabel('Depth / m');
+        xlabel('SO_4^{2+} (mM)');
+        ylabel('Depth (m)');
+        title(sprintf('Case %d', caseNum));
         hold on
     end
     set(gca,'FontSize',18);

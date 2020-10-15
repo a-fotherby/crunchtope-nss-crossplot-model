@@ -15,6 +15,11 @@ for caseNum = [1:4]
     !~/.scripts/cleanCrunchOutput.sh
     
     isotopeCrossplot('SO4--', 'SO164--')
+    xlabel('\delta^{34}S (‰)')
+    ylabel('\delta^{18}O (‰)')
+    xlim([20, 80])
+    ylim([8, 22])
+
     axis square
     
     nexttile(caseNum + 4)
@@ -28,5 +33,10 @@ for caseNum = [1:4]
     !~/.scripts/cleanCrunchOutput.sh
     
     isotopeCrossplot('SO4--', 'SO164--')
+    xlabel('\delta^{34}S (‰)')
+    ylabel('\delta^{18}O (‰)')
+    xlim([20, 80])
+    ylim([8, 22])
+
     axis square
 end

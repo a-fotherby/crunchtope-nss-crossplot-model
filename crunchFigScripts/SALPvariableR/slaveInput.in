@@ -1,4 +1,4 @@
-TITLE
+ITLE
 Crunchtope version of the NSS isotope model to test advection. Case 1.
 END
  
@@ -18,16 +18,16 @@ kinetic_database             constantRateMSR.dbs
 END
  
 OUTPUT
-spatial_profile              0.001 7 15 23 34 46 61 81 108 155 200 250 300 350 400 450 500 550 600 650 700 750 800 900
+spatial_profile 0.001 4 8.5 13.5 20 27 36 47 63 90 540
 END
 
 CONDITION                    Seawater  
 pH                           8.15  
 CO2(aq)                      4.75e-03
-SO4--                        26.79609E-03
-S34O4--                      1.2082360893E-03
-SO164--                      26.9455E-03
-SO184--                      0.0545E-03
+SO4--                        26.79183865E-03
+S34O4--                      1.208161348E-03
+SO164--                      27.94348584E-03
+SO184--                      0.0565141554E-03
 H2S(aq)                      1.000e-15
 Methane(aq)                  1e-08
 Formaldehyde                 1.2
@@ -36,11 +36,11 @@ H2O18                        0.1023565
 END
 
 AQUEOUS_KINETICS
-Sulfate_reduction -rate 8.984615e-02
-Sulfate34_reduction -rate 8.535385e-02
-Sulfate16_reduction          -rate 0.08787460815
-Sulfate18_reduction          -rate 0.08732539185
-16->18EqEx -rate 3.590465e-04
+Sulfate_reduction -rate 9.098935e-02
+Sulfate34_reduction -rate 8.421065e-02
+Sulfate16_reduction          -rate 0.175202
+Sulfate18_reduction          -rate 0.174116
+16->18EqEx -rate 3.554560e-02
 END
 
 ISOTOPES

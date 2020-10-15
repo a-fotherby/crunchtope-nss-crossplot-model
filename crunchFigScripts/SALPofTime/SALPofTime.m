@@ -19,7 +19,7 @@ for caseNum = 1:4
         system(restartCommand)
     end
     !~/.scripts/cleanCrunchOutput.sh
-    [SALP, time] = gradientTimeDep('toperatio_aq', 'SO4--', 'SO164--', 16);
+    [SALP, time] = gradientTimeDepInterp('toperatio_aq', 'SO4--', 'SO164--', 16);
     
     pTimeToSS = time ./ time(end) * 100;
     scatter(pTimeToSS, SALP, '+');
@@ -28,6 +28,6 @@ end
 
 set(findall(gcf,'-property','FontSize'),'FontSize',12)
 
-exportgraphics(t, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/SALPofTime.eps', 'ContentType', 'vector');
+%exportgraphics(t, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/SALPofTime.eps', 'ContentType', 'vector');
 
 cd(oldFolder)

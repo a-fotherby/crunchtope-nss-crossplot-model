@@ -24,10 +24,10 @@ END
 CONDITION                    Seawater  
 pH                           8.15  
 CO2(aq)                      4.75e-03
-SO4--                        26.79609E-03
-S34O4--                      1.2082360893E-03
-SO164--                      26.9455E-03
-SO184--                      0.0545E-03
+SO4--                        26.79183865E-03
+S34O4--                      1.208161348E-03
+SO164--                      27.94348584E-03
+SO184--                      0.0565141554E-03
 H2S(aq)                      1.000e-15
 Methane(aq)                  1e-08
 Formaldehyde                 1.2
@@ -36,11 +36,11 @@ H2O18                        0.1023565
 END
 
 AQUEOUS_KINETICS
-Sulfate_reduction            -rate 0.09085566119
-Sulfate34_reduction          -rate 0.08434433881
-Sulfate16_reduction          -rate 0.08787460815
-Sulfate18_reduction          -rate 0.08732539185
-16->18EqEx                   -rate 2.513325349E-3
+Sulfate_reduction            -rate 0.175744
+Sulfate34_reduction          -rate 0.163143
+Sulfate16_reduction          -rate 0.175202
+Sulfate18_reduction          -rate 0.174116
+16->18EqEx                   -rate 5.011000E-3
 END
 
 ISOTOPES
@@ -100,5 +100,5 @@ END
 FLOW
 distance_units         meters
 time_units             year
-constant_flow          5E-05
+constant_flow          0.02409
 END

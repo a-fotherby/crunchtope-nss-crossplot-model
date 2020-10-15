@@ -12,19 +12,6 @@ cd('~/Dropbox/Academic/Isotope Model/crunchModel/')
 for caseNum = [1:4]
     nexttile(caseNum)
 
-    runCommand = sprintf('~/soft/crunchtope/CrunchTope case%d.in', caseNum);
-    system(runCommand)
-    if caseNum == 3 || caseNum == 4
-        restartCommand = sprintf('~/soft/crunchtope/CrunchTope case%dRestart.in', caseNum);
-        system(restartCommand)
-    end
-    !~/.scripts/cleanCrunchOutput.sh
-    
-    isotopeCrossplot('SO4--', 'SO164--')
-    axis square
-    
-    nexttile(caseNum + 4)
-
     runCommand = sprintf('~/soft/crunchtope/CrunchTope noRcase%d.in', caseNum);
     system(runCommand)
     if caseNum == 3 || caseNum == 4
@@ -34,6 +21,25 @@ for caseNum = [1:4]
     !~/.scripts/cleanCrunchOutput.sh
     
     isotopeCrossplot('SO4--', 'SO164--')
+    xlabel('\delta^{34}S (‰)')
+    ylabel('\delta^{18}O (‰)')
+
+    axis square
+    
+    nexttile(caseNum + 4)
+
+    runCommand = sprintf('~/soft/crunchtope/CrunchTope case%d.in', caseNum);
+    system(runCommand)
+    if caseNum == 3 || caseNum == 4
+        restartCommand = sprintf('~/soft/crunchtope/CrunchTope case%dRestart.in', caseNum);
+        system(restartCommand)
+    end
+    !~/.scripts/cleanCrunchOutput.sh
+    
+    isotopeCrossplot('SO4--', 'SO164--')
+    xlabel('\delta^{34}S (‰)')
+    ylabel('\delta^{18}O (‰)')
+
     axis square
 end
 

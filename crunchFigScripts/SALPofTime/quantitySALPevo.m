@@ -7,7 +7,7 @@ setenv('PATH', path1);
 oldFolder = pwd;
 cd('~/Dropbox/Academic/Isotope Model/crunchModel/')
 
-for caseNum = 1
+for caseNum = 4
     runCommand = sprintf('~/soft/crunchtope/CrunchTope case%d.in', caseNum);
     system(runCommand)
     if caseNum == 3 || caseNum == 4
@@ -15,12 +15,14 @@ for caseNum = 1
         system(restartCommand)
     end
     !~/.scripts/cleanCrunchOutput.sh
-    [SALP, time] = gradientTimeDepInterp('toperatio_aq', 'SO4--', 'SO164--', 16);
-    [concGrad, time] = gradientTimeDepInterp('totcon', 'SO4--', 'Distance', 0.01);
-    [ScompGrad, time] = gradientTimeDepInterp('toperatio_aq', 'SO4--', 'Distance', 0.01);
-    [OcompGrad, time] = gradientTimeDepInterp('toperatio_aq', 'SO164--', 'Distance', 0.01);
+    [SALP, time] = gradientTimeDepInterp('toperatio_aq', 'SO4--', 'SO164--');
+    [concGrad, time] = gradientTimeDepInterp('totcon', 'SO4--', 'Distance');
+    [ScompGrad, time] = gradientTimeDepInterp('toperatio_aq', 'SO4--', 'Distance');
+    [OcompGrad, time] = gradientTimeDepInterp('toperatio_aq', 'SO164--', 'Distance');
 
     pTimeToSS = time ./ time(end) * 100;
+    %pTimeToSS = [0 10 20 30 40 50 60 70 80 90 100];
+
     ppSALP = (SALP ./ SALP(end)) * 100;
     ppScomp = (ScompGrad ./ ScompGrad(end)) * 100;
     ppOcomp = (OcompGrad ./ OcompGrad(end)) * 100;
@@ -29,11 +31,11 @@ for caseNum = 1
     
     f = figure;
     hold on;
-    
+        
     plot(pTimeToSS, ppSALP, 'DisplayName', 'SALP');
     plot(pTimeToSS, ppConc, 'DisplayName', 'Concentration gradient');
-    plot(pTimeToSS, ppScomp, 'DisplayName', 'Sulfur composition gradient');
-    plot(pTimeToSS, ppOcomp, 'DisplayName', 'Oxygen composition gradient');
+    plot(pTimeToSS, ppScomp, 'DisplayName', 'Sulfur isotope composition gradient');
+    plot(pTimeToSS, ppOcomp, 'DisplayName', 'Oxygen isotope composition gradient');
     
     xlabel('Percentage progress to steady state (%)')
     ylabel('Percentage of steady state value (%)')
@@ -43,6 +45,6 @@ end
 
 set(findall(gcf,'-property','FontSize'),'FontSize',12)
 
-exportgraphics(f, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/SALPofTime.eps', 'ContentType', 'vector');
+%exportgraphics(f, '/Users/angus/Dropbox/Academic/Isotope Model/Writeup/Figures/SALPofTime.eps', 'ContentType', 'vector');
 
 cd(oldFolder)

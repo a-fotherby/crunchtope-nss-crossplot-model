@@ -1,13 +1,13 @@
-TITLE
+ITLE
 Crunchtope version of the NSS isotope model to test advection. Case 1.
 END
  
 RUNTIME
-timestep_max                 10000.0
+timestep_max                 1
 timestep_init                1.e-12
 time_tolerance               0.0001
 correction_max               2.0
-debye-huckel                 true
+debye-huckel                 false
 database_sweep               false
 speciate_only                false
 screen_output                10
@@ -18,29 +18,29 @@ kinetic_database             constantRateMSR.dbs
 END
  
 OUTPUT
-spatial_profile 125 1250 1875 2500 3750 5000 6250 7500 8750 10000 11250 12500 15625 18750 21875 25000 31250 37500 43875 
+spatial_profile 0.001 4 8.5 13.5 20 27 36 47 63 90 540
 END
 
 CONDITION                    Seawater  
 pH                           8.15  
 CO2(aq)                      4.75e-03
-SO4--                        26.79609E-03
-S34O4--                      1.2082360893E-03
-SO164--                      26.9455E-03
-SO184--                      0.0545E-03
+SO4--                        26.79183865E-03
+S34O4--                      1.208161348E-03
+SO164--                      27.94348584E-03
+SO184--                      0.0565141554E-03
 H2S(aq)                      1.000e-15
 Methane(aq)                  1e-08
 Formaldehyde                 1.2
-H2O16                        1
-H2O18                        2.04713E-3
+H2O16                        50
+H2O18                        0.1023565
 END
 
 AQUEOUS_KINETICS
-Sulfate_reduction            -rate 0.000726239
-Sulfate34_reduction            -rate 0.000675361
-Sulfate16_reduction            -rate 0.000702972
-Sulfate18_reduction            -rate 0.000698628
-16->18EqEx                   -rate 8e-06
+Sulfate_reduction            -rate 0.175744
+Sulfate34_reduction          -rate 0.163143
+Sulfate16_reduction          -rate 0.175202
+Sulfate18_reduction          -rate 0.174116
+16->18EqEx                   -rate 5.011000E-3
 END
 
 ISOTOPES
@@ -53,7 +53,7 @@ fix_porosity                 0.80
 END
 
 DISCRETIZATION
-xzones                       1000 0.5
+xzones                       1000 0.004
 END
  
 INITIAL_CONDITIONS
